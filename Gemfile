@@ -1,12 +1,17 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
+gem 'haml'
+gem 'factory_girl_rails'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+group :development, :test do
+  gem 'pry-nav'
+  gem 'sqlite3'
+end
 
-gem 'sqlite3'
-
+group :development do
+  gem 'better_errors'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -26,4 +31,17 @@ group :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem "capybara-webkit"
+end
+
+group :test_tools do
+  gem 'spec_coverage'
+end
+
+group :cucumber do
+  gem 'cucumber-rails'
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'fuubar-cucumber'
 end
