@@ -1,0 +1,12 @@
+= link_to("add movie", new_movie_path)
+%h2.header movies
+
+%table.table.movies.table-striped
+  %thead
+    %tr
+      %th.name title
+      %th imdb
+      %th.actions
+
+  %tbody
+    = render :partial => "movie", :collection => @movies

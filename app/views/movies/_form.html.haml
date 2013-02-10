@@ -1,0 +1,14 @@
+= simple_form_for @movie do |f|
+  = f.error_notification
+
+  = f.input :title
+  = f.input :imdb_link
+
+  %h3 Screenshots
+  #screenshots
+    = f.simple_fields_for :screenshots do |screenshot|
+      = render 'screenshot_fields', :f => screenshot
+    .links
+      = link_to_add_association 'add screenshot', f, :screenshots
+
+  = f.submit

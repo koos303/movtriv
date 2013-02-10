@@ -1,0 +1,5 @@
+= @movie.title
+= @movie.imdb_link
+
+- @movie.screenshots.each do |screenshot| 
+  = image_tag screenshot.file.url
