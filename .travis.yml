@@ -1,9 +1,14 @@
+branches:
+  only:
+    - master
 language: ruby
+matrix:
+  allow_failures:
+    - rvm: ruby-head
 rvm:
   - "1.9.2"
   - "1.9.3"
   - ruby-head
-  - "2.0.0"
   - rbx-19mode
 before_script:
   - "export DISPLAY=:99.0"
