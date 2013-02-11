@@ -11,13 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130210083900) do
+ActiveRecord::Schema.define(:version => 20130211224005) do
 
   create_table "movies", :force => true do |t|
     t.string   "title"
     t.string   "imdb_link"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "questions", :force => true do |t|
+    t.integer  "answer_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "questions_others", :id => false, :force => true do |t|
+    t.integer "question_id"
+    t.integer "movie_id"
   end
 
   create_table "screenshots", :force => true do |t|
