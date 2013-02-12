@@ -4,6 +4,8 @@ class CreateQuestionsOthersTable < ActiveRecord::Migration
       t.integer :question_id
       t.integer :movie_id
     end
+
+    add_index(:questions_others, [:question_id, :movie_id], :unique => true)
   end
 
   def down

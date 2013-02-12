@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.11'
+gem 'rails'
 gem 'haml'
 gem 'factory_girl_rails'
 gem 'simple_form'
@@ -33,7 +33,8 @@ gem 'jquery-rails'
 group :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
-  gem "capybara-webkit"
+  gem 'capybara-webkit'
+  gem 'valid_attribute'
 end
 
 group :test_tools do

@@ -5,5 +5,7 @@ class CreateQuestions < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index(:questions, :answer_id, :unique => true)
   end
 end

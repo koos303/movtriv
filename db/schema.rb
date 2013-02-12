@@ -26,10 +26,14 @@ ActiveRecord::Schema.define(:version => 20130211224005) do
     t.datetime "updated_at", :null => false
   end
 
+  add_index "questions", ["answer_id"], :name => "index_questions_on_answer_id", :unique => true
+
   create_table "questions_others", :id => false, :force => true do |t|
     t.integer "question_id"
     t.integer "movie_id"
   end
+
+  add_index "questions_others", ["question_id", "movie_id"], :name => "index_questions_others_on_question_id_and_movie_id", :unique => true
 
   create_table "screenshots", :force => true do |t|
     t.string   "file"
