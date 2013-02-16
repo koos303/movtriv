@@ -8,10 +8,10 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:question_id])
 
     if params[:answer].to_i == @question.answer.id
-      flash[:right] = "Hurray!"
+      flash[:notice] = "Hurray!"
       redirect_to :action => "play"
     else
-      flash[:wrong] = "Awwwh :'( </3"
+      flash[:alert] = "Awwwh :'( </3"
       build_options
       render :play
     end

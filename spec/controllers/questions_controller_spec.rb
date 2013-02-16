@@ -28,12 +28,12 @@ describe QuestionsController do
 
     it "sets the 'right' flash message" do
       post :check, question_id: @question.id, answer: @movie1.id
-      flash[:right].should be_present
+      flash[:notice].should be_present
     end
 
     it "sets the 'wrong' flash message" do
       post :check, question_id: @question.id, answer: @movie2.id
-      flash[:wrong].should be_present
+      flash[:alert].should be_present
     end
   end
 end
