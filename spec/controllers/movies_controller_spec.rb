@@ -1,6 +1,13 @@
 require 'spec_helper'
 
 describe MoviesController do
+  include Devise::TestHelpers
+
+  before do
+    @admin = create(:admin)
+    sign_in @admin
+  end
+
   describe "#index" do
     it "assigns @movies" do
       get :index

@@ -1,3 +1,23 @@
+Given /^I am a logged in admin$/ do
+  step "I go to the admin login page"
+  step "I enter valid credentials"
+end
+
+Given /^there is a admin user$/ do
+  @admin = create(:admin, :email => 'leet@admin.com', :password => 'poepjes+scheetjes')
+end
+
+When /^I go to the admin login page$/ do
+  visit new_admin_session_path
+end
+
+When /^I enter valid credentials$/ do
+  step "there is a admin user"
+  fill_in "Email", with: "leet@admin.com"
+  fill_in "Password", with: "poepjes+scheetjes"
+  click_button "Sign in"
+end
+
 When /^I make a new movie entry and upload a screenshot$/ do
   visit new_movie_path
   fill_in "Title", with: "Matrix, the"
