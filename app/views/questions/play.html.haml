@@ -1,11 +1,15 @@
-- @question.answer.screenshots.each do |screenshot|
-  = image_tag screenshot.file.url(:resized)
+.picture
+  - @question.answer.screenshots.each do |screenshot|
+    = image_tag screenshot.file.url(:resized)
 
 = form_tag(:controller => "questions", :action => "check") do
   = hidden_field_tag(:question_id, @question.id)
-  - @options.shuffle.each do |movie|
-    %li
-      = radio_button_tag(:answer, movie.id)
-      = label_tag(:title, movie.title)
 
-  = submit_tag("Check")
+  .row.span12
+    - @options.shuffle.each do |movie|
+      %label{:class => "radio"}
+        = radio_button_tag(:answer, movie.id)
+        = movie.title
+
+  .row.span12
+    = submit_tag("Check", :class => "btn")
