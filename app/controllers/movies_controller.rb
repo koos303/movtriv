@@ -10,7 +10,7 @@ class MoviesController < ApplicationController
   end
 
   def create
-    @movie = Movie.new(params[:movie])
+    @movie = Movie.new(movie_params)
 
     if @movie.save
       redirect_to movies_path
@@ -30,10 +30,17 @@ class MoviesController < ApplicationController
   def update
     @movie = Movie.find(params[:id])
 
-    if @movie.update_attributes(params[:movie])
+    if @movie.update_attributes(movie_params)
       redirect_to movies_path
     else
       render :edit
     end
   end
+
+  private
+
+  def movie_params
+    params.require(:movie).permit(:title, :imdb_link, screenshots_attributes: :file)
+  end
+
 end

@@ -1,14 +1,15 @@
 source 'https://rubygems.org'
 
-gem 'rails'
-gem 'haml'
+gem 'rails',  :github => "rails/rails", :branch => 'v4.0.0.beta1'
+gem 'haml',   :github => "haml/haml"
 gem 'factory_girl_rails'
 gem 'simple_form'
 gem 'carrierwave'
-gem 'cocoon'
+gem 'cocoon', :github => "nathanvda/cocoon"
 gem 'mini_magick'
 gem 'sentry-raven', :git => "https://github.com/getsentry/raven-ruby.git"
-gem 'devise'
+gem 'devise',       :github => "plataformatec/devise", :branch => 'rails4'
+gem 'mysql2'
 
 group :development, :test do
   gem 'pry-nav'
@@ -21,15 +22,15 @@ group :development do
 end
 
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
+  gem 'sass-rails',   github: 'rails/sass-rails'
+  gem 'coffee-rails', github: 'rails/coffee-rails'
   gem 'therubyracer', :platforms => :ruby
-  gem 'less-rails'
+  gem 'jquery-rails'
   gem 'uglifier', '>= 1.0.3'
-  gem 'twitter-bootstrap-rails'
+  gem 'bootstrap-sass'
+  gem 'font-awesome-sass-rails'
+  gem 'turbo-sprockets-rails3'
 end
-
-gem 'jquery-rails'
 
 group :test do
   gem 'rspec-rails'
@@ -44,7 +45,7 @@ end
 
 group :cucumber do
   gem 'cucumber-rails'
-  gem 'database_cleaner'
+  gem 'database_cleaner', github: 'bmabey/database_cleaner'
   gem 'launchy'
   gem 'capybara'
   gem 'selenium-webdriver'
