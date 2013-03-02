@@ -1,7 +1,11 @@
 class QuestionsController < ApplicationController
   def play
-    @question = random_question
-    build_options
+    if Question.count == 0
+      render :no_questions
+    else
+      @question = random_question
+      build_options
+    end
   end
 
   def check

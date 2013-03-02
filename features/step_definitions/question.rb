@@ -9,8 +9,16 @@ Given /^there is a question$/ do
   @question = create(:question, :answer => @movie1, :others => [@movie2, @movie3])
 end
 
-Given /^I am on the homepage$/ do
+When /^I am on the homepage$/ do
   visit root_path
+end
+
+Then /^I should see no questions$/ do
+  page.should have_content("no questions")
+end
+
+Then /^I should see a random question with (\d+) answers$/ do |number_of_answers|
+  all('input[@name = "answer"]').size.should be(number_of_answers.to_i)
 end
 
 When /^I choose the correct answer$/ do
