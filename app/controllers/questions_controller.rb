@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
     if Question.count == 0
       render :no_questions
     else
-      @question = random_question
+      @question = Question.random
       build_options
     end
   end
@@ -23,13 +23,8 @@ class QuestionsController < ApplicationController
 
   private
 
-  def random_question
-    offset = rand(Question.count)
-    rand_record = Question.first(:offset => offset)
-  end
-
   def build_options
-    @options = [@question.answer] 
+    @options = [@question.answer]
     @options.concat(@question.others)
   end
 end

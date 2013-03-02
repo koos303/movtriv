@@ -4,4 +4,8 @@ class Question < ActiveRecord::Base
 
   validates_presence_of :answer, :others
   validates_uniqueness_of :answer_id
+
+  def self.random
+    offset(rand(count)).first
+  end
 end
