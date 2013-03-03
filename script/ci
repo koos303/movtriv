@@ -5,6 +5,12 @@ run() {
   time bundle exec $*
 }
 
+# check if tmp folder exists, otherwise create it
+if [ ! -d ./tmp ]; then
+  echo "--- Creating tmp directory"
+  mkdir -p ./tmp
+fi
+
 echo "--- Starting continuous integration build"
 
 ./script/bundler
