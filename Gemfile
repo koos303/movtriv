@@ -37,6 +37,7 @@ group :test do
   gem 'shoulda-matchers'
   gem 'capybara-webkit'
   gem 'valid_attribute'
+  gem 'database_cleaner', github: 'bmabey/database_cleaner'
 end
 
 group :test_tools do
@@ -45,7 +46,6 @@ end
 
 group :cucumber do
   gem 'cucumber-rails'
-  gem 'database_cleaner', github: 'bmabey/database_cleaner'
   gem 'launchy'
   gem 'capybara'
   gem 'selenium-webdriver'
