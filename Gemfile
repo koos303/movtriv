@@ -1,14 +1,13 @@
 source 'https://rubygems.org'
 
-gem 'rails',  :github => "rails/rails", :branch => 'v4.0.0.beta1'
-gem 'haml',   :github => "haml/haml"
+gem 'rails',  :github => "rails/rails", :branch => "4-0-stable"
+gem 'haml'
 gem 'factory_girl_rails'
 gem 'simple_form'
 gem 'carrierwave'
 gem 'cocoon', :github => "nathanvda/cocoon"
 gem 'mini_magick'
-gem 'sentry-raven', :git => "https://github.com/getsentry/raven-ruby.git"
-gem 'devise',       :github => "plataformatec/devise", :branch => 'rails4'
+gem 'devise', '3.0.0.rc'
 gem 'mysql2'
 
 group :development, :test do
@@ -21,16 +20,14 @@ group :development do
   gem 'binding_of_caller'
 end
 
-group :assets do
-  gem 'sass-rails',   github: 'rails/sass-rails'
-  gem 'coffee-rails', github: 'rails/coffee-rails'
-  gem 'therubyracer', :platforms => :ruby
-  gem 'jquery-rails'
-  gem 'uglifier', '>= 1.0.3'
-  gem 'bootstrap-sass'
-  gem 'font-awesome-sass-rails'
-  gem 'turbo-sprockets-rails3'
-end
+gem 'sass-rails'
+gem 'coffee-rails'
+gem 'therubyracer'
+gem 'jquery-rails'
+gem 'uglifier', '>= 1.0.3'
+gem 'bootstrap-sass'
+gem 'font-awesome-sass-rails'
+gem 'turbo-sprockets-rails3'
 
 group :test do
   gem 'rspec-rails'
@@ -45,7 +42,7 @@ group :test_tools do
 end
 
 group :cucumber do
-  gem 'cucumber-rails'
+  gem 'cucumber-rails', github: 'cucumber/cucumber-rails', branch: 'master_rails4_test'
   gem 'launchy'
   gem 'capybara'
   gem 'selenium-webdriver'
