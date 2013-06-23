@@ -1,10 +1,11 @@
 class QuestionsController < ApplicationController
   def play
-    if Question.count == 0
-      render :no_questions
-    else
+    begin
+      QuestionGenerator.update if Question.count == 0
       @question = Question.random
       build_options
+    rescue
+      render :no_questions
     end
   end
 
