@@ -6,9 +6,9 @@ run() {
 }
 
 # check if tmp folder exists, otherwise create it
-if [ ! -d ./tmp ]; then
+if [ ! -d ./tmp/screenshots ]; then
   echo "--- Creating tmp directory"
-  mkdir -p ./tmp
+  mkdir -p ./tmp/screenshots
 fi
 
 echo "--- Starting continuous integration build"
