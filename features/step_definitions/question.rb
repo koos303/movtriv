@@ -22,6 +22,7 @@ Then /^I should see a random question with (\d+) answers$/ do |number_of_answers
 end
 
 When /^I choose the correct answer$/ do
+  step "I am on the homepage"
   choose("answer_#{@question.answer.id}")
   step "submit answer"
 end
@@ -35,7 +36,8 @@ Then /^I see that I have answered correctly$/ do
 end
 
 When /^I choose a wrong answer$/ do
-  choose("answer_#{@question.others.first.id}")
+  step "I am on the homepage"
+  choose("answer_#{@question.others.sample.id}")
   step "submit answer"
 end
 

@@ -31,8 +31,8 @@ ActiveRecord::Schema.define(version: 20130217093604) do
     t.datetime "updated_at"
   end
 
-  add_index "admins", ["email"], name: "index_admins_on_email", unique: true
-  add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
+  add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
 
   create_table "movies", force: true do |t|
     t.string   "title"
@@ -47,14 +47,14 @@ ActiveRecord::Schema.define(version: 20130217093604) do
     t.datetime "updated_at"
   end
 
-  add_index "questions", ["answer_id"], name: "index_questions_on_answer_id", unique: true
+  add_index "questions", ["answer_id"], name: "index_questions_on_answer_id", unique: true, using: :btree
 
   create_table "questions_others", id: false, force: true do |t|
     t.integer "question_id"
     t.integer "movie_id"
   end
 
-  add_index "questions_others", ["question_id", "movie_id"], name: "index_questions_others_on_question_id_and_movie_id", unique: true
+  add_index "questions_others", ["question_id", "movie_id"], name: "index_questions_others_on_question_id_and_movie_id", unique: true, using: :btree
 
   create_table "screenshots", force: true do |t|
     t.string   "file"
